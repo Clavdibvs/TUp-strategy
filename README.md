@@ -151,12 +151,19 @@ Il progetto usa TypeScript in modalità strict per maggiore type-safety.
 ### Path Aliases
 Configurato `@/*` che punta a `./src/*` per import più puliti.
 
-## 🎨 Palette Colori
+## 🎨 Brand Identity (dal Logo T-UP)
 
-- **Primary**: Slate (900, 800, 700...) - Industrial modern
-- **Accent**: Yellow (400, 500) - Safety & Energy
-- **Semantic**: Blue (500), Green (500), Purple (500), Orange (500)
-- **Background**: Slate (50, 100) - Minimal & Clean
+### Font
+- **Display/Brand**: Rajdhani Bold - Dinamico, bold, stile racing (simile al logo)
+- **Body**: Inter - Leggibile, moderno, professionale
+
+### Palette Colori
+- **Primary (T-UP Gold)**: #F5B800 - Giallo industriale del logo
+- **Secondary (T-UP Grey)**: #7F8C8D - Grigio industriale (ruota dentata)
+- **Background**: Grigio warm molto chiaro (#F9F9F8)
+- **Foreground**: Grigio scuro (#2D3539)
+- **Accent**: Variazioni del gold (#FDC500 - più chiaro)
+- **Semantic**: Blu (#3b82f6), Verde, Viola, Arancio (per differenziazione blocchi)
 
 ## 📱 Browser Support
 

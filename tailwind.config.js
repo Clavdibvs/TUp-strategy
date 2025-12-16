@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        brand: ['Oswald', 'sans-serif'],
+        brand: ['Rajdhani', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

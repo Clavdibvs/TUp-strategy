@@ -116,21 +116,21 @@ const trendsData: Trend[] = [
 ]
 
 const scenarioData = [
-  { name: 'Conservativo', views: 30000, color: '#94a3b8' },
+  { name: 'Conservativo', views: 30000, color: '#7F8C8D' },
   { name: 'Base\n(Realistico)', views: 150000, color: '#3b82f6' },
-  { name: 'Upside\n(1 Virale)', views: 1500000, color: '#eab308' }
+  { name: 'Upside\n(1 Virale)', views: 1500000, color: '#F5B800' }
 ]
 
 const contentBlocks = [
   {
     title: "1. Trend Hijack",
     icon: Zap,
-    color: "yellow",
+    color: "primary",
     objective: "Reach & Follow",
     description: "Meme, brainrot, audio drop. Testo grande + Drop visivo.",
     format: "6-12 sec",
     frequency: "3x Settimana",
-    borderColor: "border-yellow-400"
+    borderColor: "border-primary"
   },
   {
     title: "2. ASMR / Satisfying",
@@ -194,28 +194,32 @@ function App() {
     : trendsData.filter(t => t.category === trendFilter)
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen">
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="sticky top-0 z-50 bg-slate-900 text-white shadow-lg"
+        className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border text-foreground shadow-lg"
       >
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <span className="text-2xl font-bold font-brand tracking-wider text-yellow-400">T-UP</span>
-            <span className="text-xs md:text-sm opacity-75 border-l border-slate-600 pl-2 ml-2">
-              Strategia Lancio Gennaio
+        <div className="container mx-auto px-4 py-3 flex justify-center lg:justify-between items-center gap-8">
+          <div className="flex items-center space-x-3">
+            <img
+              src="/assets/logo-tup.png"
+              alt="T-UP Logo"
+              className="h-12 md:h-14 w-auto"
+            />
+            <span className="text-xs md:text-sm opacity-70 border-l border/30 pl-3 ml-1">
+              Strategia Lancio
             </span>
           </div>
 
-          <nav className="hidden md:flex space-x-6 text-sm font-medium">
-            <a href="#blocks" className="hover:text-yellow-400 transition-colors">6 Blocchi</a>
-            <a href="#trends" className="hover:text-yellow-400 transition-colors">Trend Radar</a>
-            <a href="#scenarios" className="hover:text-yellow-400 transition-colors">Scenari & KPI</a>
+          <nav className="hidden lg:flex space-x-6 text-sm font-medium">
+            <a href="#blocks" className="hover:text-primary transition-colors">6 Blocchi</a>
+            <a href="#trends" className="hover:text-primary transition-colors">Trend Radar</a>
+            <a href="#scenarios" className="hover:text-primary transition-colors">Scenari & KPI</a>
             <Button
               size="sm"
-              className="bg-yellow-400 text-slate-900 hover:bg-yellow-300"
+              className="bg-primary text-primary-foreground hover:bg-accent"
               onClick={() => document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Roadmap
@@ -225,7 +229,7 @@ function App() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden text-yellow-400"
+            className="lg:hidden text-primary hover:bg-muted absolute right-4"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -238,16 +242,16 @@ function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-slate-800 border-t border-slate-700"
+              className="lg:hidden bg-card/95 backdrop-blur-lg border-t border"
             >
               <nav className="p-4 space-y-3">
-                <a href="#blocks" className="block py-2 hover:text-yellow-400 border-b border-slate-700">
+                <a href="#blocks" className="block py-2 hover:text-primary border-b border">
                   6 Blocchi
                 </a>
-                <a href="#trends" className="block py-2 hover:text-yellow-400 border-b border-slate-700">
+                <a href="#trends" className="block py-2 hover:text-primary border-b border">
                   Trend Radar
                 </a>
-                <a href="#scenarios" className="block py-2 hover:text-yellow-400">
+                <a href="#scenarios" className="block py-2 hover:text-primary">
                   Scenari
                 </a>
               </nav>
@@ -264,29 +268,29 @@ function App() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center space-y-6"
         >
-          <Badge className="bg-yellow-100 text-yellow-800 hover:bg-yellow-100 border-yellow-300">
-            <span className="w-2 h-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></span>
+          <Badge className="bg-primary/10 text-primary hover:bg-primary/10 border-primary/30">
+            <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
             Obiettivo: 1 Virale Mese 1
           </Badge>
 
-          <h1 className="text-4xl md:text-6xl font-bold font-brand text-slate-900 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold font-brand text-foreground leading-tight">
             Strategia "Start from Zero":<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">
               Volume & Velocità
             </span>
           </h1>
 
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Non inseguiamo la perfezione, compriamo dati.
-            <br /><strong>Regola d'oro:</strong> Hook visivo in 1 secondo + Cross-posting totale.
+            <br /><strong className="text-foreground">Regola d'oro:</strong> Hook visivo in 1 secondo + Cross-posting totale.
           </p>
         </motion.section>
 
         {/* 6 Content Blocks */}
         <section id="blocks" className="space-y-8">
-          <div className="border-b border-slate-200 pb-4">
-            <h2 className="text-3xl font-bold font-brand text-slate-900">I 6 Blocchi Operativi</h2>
-            <p className="text-slate-600 text-sm mt-1">
+          <div className="border-b border pb-4">
+            <h2 className="text-3xl font-bold font-brand text-foreground">I 6 Blocchi Operativi</h2>
+            <p className="text-muted-foreground text-sm mt-1">
               Il mix di contenuti per un calendario da 22-26 post mensili.
             </p>
           </div>
@@ -311,8 +315,8 @@ function App() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-sm text-slate-600">{block.description}</p>
-                    <div className="flex justify-between items-center text-xs font-medium bg-slate-50 p-2 rounded">
+                    <p className="text-sm text-muted-foreground">{block.description}</p>
+                    <div className="flex justify-between items-center text-xs font-medium bg-muted p-2 rounded">
                       <span>Format: {block.format}</span>
                       <Badge variant="secondary" className={`bg-${block.color}-100 text-${block.color}-600`}>
                         {block.frequency}
@@ -327,10 +331,10 @@ function App() {
 
         {/* Trend Radar */}
         <section id="trends" className="space-y-6">
-          <div className="flex flex-col md:flex-row justify-between items-end border-b border-slate-200 pb-4">
+          <div className="flex flex-col md:flex-row justify-between items-end border-b border pb-4">
             <div>
-              <h2 className="text-3xl font-bold font-brand text-slate-900">Trend Radar (Gennaio)</h2>
-              <p className="text-slate-600 text-sm mt-1">
+              <h2 className="text-3xl font-bold font-brand text-foreground">Trend Radar</h2>
+              <p className="text-muted-foreground text-sm mt-1">
                 Idee pronte all'uso per i blocchi "Trend Hijack" e "Slideshow".
               </p>
             </div>
@@ -342,7 +346,6 @@ function App() {
                   size="sm"
                   variant={trendFilter === filter ? 'default' : 'outline'}
                   onClick={() => setTrendFilter(filter)}
-                  className={trendFilter === filter ? 'bg-slate-900' : ''}
                 >
                   {filter === 'all' ? 'Tutti' : filter.charAt(0).toUpperCase() + filter.slice(1)}
                 </Button>
@@ -371,22 +374,22 @@ function App() {
                       </Badge>
                       <Badge
                         className={trend.safety === 'verde'
-                          ? 'bg-green-100 text-green-700 border-green-300'
-                          : 'bg-yellow-100 text-yellow-700 border-yellow-300'
+                          ? 'bg-green-500/20 text-green-400 border-green-500/30'
+                          : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
                         }
                       >
                         <Shield className="w-3 h-3 mr-1" />
                         {trend.safety === 'verde' ? 'Alta' : 'Media'}
                       </Badge>
                     </div>
-                    <CardTitle className="group-hover:text-yellow-600 transition-colors">
+                    <CardTitle className="group-hover:text-primary transition-colors">
                       {trend.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-sm text-slate-500 line-clamp-3">{trend.analysis}</p>
-                    <div className="pt-4 border-t border-slate-100 flex justify-end items-center">
-                      <span className="text-xs font-bold text-blue-600 flex items-center group-hover:underline">
+                    <p className="text-sm text-muted-foreground line-clamp-3">{trend.analysis}</p>
+                    <div className="pt-4 border-t border flex justify-end items-center">
+                      <span className="text-xs font-bold text-primary flex items-center group-hover:underline">
                         Vedi Strategia <ArrowRight className="w-3 h-3 ml-1" />
                       </span>
                     </div>
@@ -399,7 +402,7 @@ function App() {
 
         {/* Scenarios & Data */}
         <section id="scenarios">
-          <Card className="border-slate-200">
+          <Card>
             <CardHeader>
               <CardTitle className="text-3xl">Proiezioni Mese 1</CardTitle>
               <CardDescription>
@@ -410,7 +413,7 @@ function App() {
               {/* Chart */}
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-4 flex items-center">
+                  <h4 className="font-bold text-foreground mb-4 flex items-center">
                     <BarChart2 className="w-5 h-5 mr-2 text-blue-500" />
                     Scenari di Views (Totale Mese)
                   </h4>
@@ -450,13 +453,13 @@ function App() {
               {/* Data Cards */}
               <div className="space-y-8">
                 <div className="grid grid-cols-1 gap-4">
-                  <Card className="bg-slate-50 border-l-4 border-slate-400">
+                  <Card className="bg-muted border-l-4 border-secondary">
                     <CardContent className="pt-6">
-                      <h5 className="font-bold text-slate-700 mb-2">Scenario Conservativo</h5>
-                      <div className="grid grid-cols-3 gap-2 text-sm text-slate-600">
-                        <div><span className="block font-bold text-slate-900">10k-50k</span>Views</div>
-                        <div><span className="block font-bold text-slate-900">50-200</span>Follower</div>
-                        <div><span className="block font-bold text-slate-900">0-5</span>Ordini</div>
+                      <h5 className="font-bold text-card-foreground mb-2">Scenario Conservativo</h5>
+                      <div className="grid grid-cols-3 gap-2 text-sm text-muted-foreground">
+                        <div><span className="block font-bold text-foreground">10k-50k</span>Views</div>
+                        <div><span className="block font-bold text-foreground">50-200</span>Follower</div>
+                        <div><span className="block font-bold text-foreground">0-5</span>Ordini</div>
                       </div>
                     </CardContent>
                   </Card>
@@ -486,13 +489,13 @@ function App() {
 
                 {/* Signals */}
                 <div>
-                  <h4 className="font-bold text-slate-900 mb-3 flex items-center">
+                  <h4 className="font-bold text-foreground mb-3 flex items-center">
                     <Activity className="w-5 h-5 mr-2 text-green-500" />
                     Segnali "Sta Funzionando" (Pre-Follower)
                   </h4>
                   <Card>
                     <CardContent className="pt-6">
-                      <ul className="space-y-3 text-sm text-slate-600">
+                      <ul className="space-y-3 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <CheckCircle className="w-4 h-4 mr-2 text-green-500 mt-0.5 flex-shrink-0" />
                           <span>Video che superano 3-5x la media delle views.</span>
@@ -516,8 +519,8 @@ function App() {
 
         {/* Roadmap */}
         <section id="roadmap" className="space-y-6">
-          <h2 className="text-3xl font-bold font-brand text-slate-900">
-            Roadmap Gennaio (Settimana x Settimana)
+          <h2 className="text-3xl font-bold font-brand text-foreground">
+            Roadmap (Settimana x Settimana)
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -579,31 +582,31 @@ function App() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className={`relative overflow-hidden group h-full ${
-                  week.dark ? 'bg-slate-900 text-white' : ''
+                  week.dark ? 'bg-primary/5 border-primary/20' : 'bg-card'
                 }`}>
                   <div className={`absolute top-0 right-0 p-4 opacity-10 font-bold text-5xl group-hover:scale-110 transition-transform ${
-                    week.dark ? 'text-white' : 'text-slate-900'
+                    week.dark ? 'text-primary' : 'text-foreground'
                   }`}>
                     {week.week}
                   </div>
                   <CardHeader>
-                    <CardTitle className={week.dark ? 'text-yellow-400' : ''}>
+                    <CardTitle className={week.dark ? 'text-primary' : ''}>
                       {week.title}
                     </CardTitle>
                     <CardDescription className={`text-xs uppercase tracking-wider font-bold ${
-                      week.dark ? 'text-slate-400' : ''
+                      week.dark ? 'text-muted-foreground' : ''
                     }`}>
                       {week.subtitle}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-2">
                     <p className={`border-b pb-2 mb-2 text-sm ${
-                      week.dark ? 'border-slate-700 text-slate-300' : 'border-slate-100'
+                      week.dark ? 'border-primary/20 text-foreground' : 'border'
                     }`}>
                       Focus: {week.objective}
                     </p>
                     <ul className={`list-disc list-inside space-y-1 text-xs ${
-                      week.dark ? 'text-slate-300' : 'text-slate-600'
+                      week.dark ? 'text-muted-foreground' : 'text-muted-foreground'
                     }`}>
                       {week.tasks.map((task, i) => (
                         <li key={i}>{task}</li>
@@ -618,10 +621,10 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-100 border-t border-slate-200 py-8 mt-12">
+      <footer className="bg-card border-t border py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-400 text-xs font-medium uppercase tracking-wider">
-            &copy; 2025 T-Up Strategy Analysis. Generated by AI Senior Strategist.
+          <p className="text-muted-foreground text-xs font-medium uppercase tracking-wider">
+            &copy; 2026 T-Up Strategy Analysis. Powered by Claudio.
           </p>
         </div>
       </footer>
@@ -633,14 +636,14 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedTrend(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row relative"
+              className="bg-card rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row relative border"
               onClick={(e) => e.stopPropagation()}
             >
               <Button
@@ -653,27 +656,27 @@ function App() {
               </Button>
 
               {/* Left: Analysis */}
-              <div className="w-full md:w-1/2 p-8 bg-slate-50 border-r border-slate-100">
+              <div className="w-full md:w-1/2 p-8 bg-muted/30 border-r border">
                 <div className="flex justify-between items-start mb-6">
                   <Badge variant="outline">{selectedTrend.category}</Badge>
                   <Badge
                     className={selectedTrend.safety === 'verde'
-                      ? 'bg-green-100 text-green-700 border-green-300'
-                      : 'bg-yellow-100 text-yellow-700 border-yellow-300'
+                      ? 'bg-green-500/20 text-green-400 border-green-500/30'
+                      : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
                     }
                   >
                     Brand Safety: {selectedTrend.safety === 'verde' ? 'Alta (Clean)' : 'Media (Check Tone)'}
                   </Badge>
                 </div>
-                <h3 className="text-3xl font-bold font-brand mb-4 text-slate-900">
+                <h3 className="text-3xl font-bold font-brand mb-4 text-foreground">
                   {selectedTrend.title}
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-bold text-xs text-slate-400 uppercase mb-1">
+                    <h4 className="font-bold text-xs text-muted-foreground uppercase mb-1">
                       Analisi Trend
                     </h4>
-                    <p className="text-slate-700 text-sm leading-relaxed">
+                    <p className="text-foreground/80 text-sm leading-relaxed">
                       {selectedTrend.analysis}
                     </p>
                   </div>
@@ -681,35 +684,35 @@ function App() {
               </div>
 
               {/* Right: Execution */}
-              <div className="w-full md:w-1/2 p-8 bg-white relative">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400 opacity-5 rounded-bl-full pointer-events-none" />
+              <div className="w-full md:w-1/2 p-8 bg-card relative">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary opacity-5 rounded-bl-full pointer-events-none" />
                 <div className="flex items-center space-x-2 mb-6">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">
+                  <span className="text-muted-foreground text-xs font-bold uppercase tracking-wider">
                     Strategia T-Up 🇮🇹
                   </span>
                 </div>
 
                 <div className="space-y-6">
-                  <Card className="bg-yellow-50 border-yellow-100">
+                  <Card className="bg-primary/10 border-primary/20">
                     <CardContent className="pt-6">
-                      <h4 className="font-bold text-yellow-800 mb-2 flex items-center text-sm">
+                      <h4 className="font-bold text-primary mb-2 flex items-center text-sm">
                         <Lightbulb className="w-4 h-4 mr-2" />
                         Adattamento Magazzino
                       </h4>
-                      <p className="text-slate-800 font-medium text-sm leading-relaxed">
+                      <p className="text-foreground font-medium text-sm leading-relaxed">
                         {selectedTrend.idea}
                       </p>
                     </CardContent>
                   </Card>
 
                   <div>
-                    <h4 className="font-bold text-xs text-slate-400 uppercase mb-2">
+                    <h4 className="font-bold text-xs text-muted-foreground uppercase mb-2">
                       Hook / Gancio Visivo
                     </h4>
                     <div className="relative">
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-yellow-400 rounded-full" />
-                      <p className="pl-4 text-lg italic text-slate-700 py-1">
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-full" />
+                      <p className="pl-4 text-lg italic text-foreground/90 py-1">
                         "{selectedTrend.hook}"
                       </p>
                     </div>
